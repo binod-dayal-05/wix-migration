@@ -116,6 +116,116 @@ get_header();
     </div>
 </section>
 
+<!-- YouTube Feed Gallery Section -->
+<section class="youtube-feed-section">
+    <div class="youtube-feed-container">
+        
+        <!-- Header with lines and text -->
+        <div class="youtube-header">
+            <span class="youtube-line"></span>
+            <div class="youtube-title-box">
+                <h2 class="youtube-title">Latest posts from Youtube</h2>
+                <a href="https://www.youtube.com/@GurdwaraSahibSukhSagar" target="_blank" rel="noopener noreferrer" class="youtube-header-icon" aria-label="YouTube Link">
+                    <svg viewBox="0 0 24 24" class="youtube-title-svg"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+            <span class="youtube-line"></span>
+        </div>
+
+        <!-- Main YouTube Player Frame -->
+        <div class="youtube-player-wrapper">
+            <iframe id="youtube-main-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <!-- Carousel / Grid Thumbnails -->
+        <div class="youtube-gallery-slider">
+            <button class="carousel-arrow arrow-left" id="yt-scroll-left" aria-label="Previous videos">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            
+            <div class="youtube-thumbs-scroll" id="yt-thumbs-container">
+                <!-- Video 1 -->
+                <div class="youtube-thumb-item active" data-video-id="qA0n2kG7Cfs">
+                    <img src="https://img.youtube.com/vi/qA0n2kG7Cfs/mqdefault.jpg" alt="Nitnem & Asa Di Vaar">
+                    <div class="youtube-play-icon-overlay">
+                        <svg viewBox="0 0 24 24" class="youtube-play-icon-svg"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="youtube-thumb-item" data-video-id="Lh3JzM2pLrk">
+                    <img src="https://img.youtube.com/vi/Lh3JzM2pLrk/mqdefault.jpg" alt="Gurdwara Live Kirtan">
+                    <div class="youtube-play-icon-overlay">
+                        <svg viewBox="0 0 24 24" class="youtube-play-icon-svg"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="youtube-thumb-item" data-video-id="a9j_3R82l_Q">
+                    <img src="https://img.youtube.com/vi/a9j_3R82l_Q/mqdefault.jpg" alt="Evening Rehraas Sahib">
+                    <div class="youtube-play-icon-overlay">
+                        <svg viewBox="0 0 24 24" class="youtube-play-icon-svg"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="youtube-thumb-item" data-video-id="9vR_7k0k58I">
+                    <img src="https://img.youtube.com/vi/9vR_7k0k58I/mqdefault.jpg" alt="Sikh Community Program">
+                    <div class="youtube-play-icon-overlay">
+                        <svg viewBox="0 0 24 24" class="youtube-play-icon-svg"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-arrow arrow-right" id="yt-scroll-right" aria-label="Next videos">
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mainIframe = document.getElementById('youtube-main-iframe');
+    const thumbItems = document.querySelectorAll('.youtube-thumb-item');
+    
+    // Set first video active on load
+    if (thumbItems.length > 0 && mainIframe) {
+        const firstVideoId = thumbItems[0].getAttribute('data-video-id');
+        mainIframe.src = `https://www.youtube.com/embed/${firstVideoId}?autoplay=0&rel=0`;
+    }
+    
+    thumbItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            if (mainIframe && videoId) {
+                // Set active class
+                thumbItems.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Load clicked video in main player with autoplay
+                mainIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            }
+        });
+    });
+
+    // Horizontal Scrolling
+    const container = document.getElementById('yt-thumbs-container');
+    const leftBtn = document.getElementById('yt-scroll-left');
+    const rightBtn = document.getElementById('yt-scroll-right');
+
+    if (container && leftBtn && rightBtn) {
+        leftBtn.addEventListener('click', () => {
+            container.scrollLeft -= 250;
+        });
+        rightBtn.addEventListener('click', () => {
+            container.scrollLeft += 250;
+        });
+    }
+});
+</script>
+
 <!-- Instagram Post Scroller Section -->
 <section class="instagram-feed-section">
     <div class="instagram-feed-container">

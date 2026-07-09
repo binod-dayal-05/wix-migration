@@ -945,6 +945,172 @@ body {
 }
 
 /* ==========================================
+   YouTube Feed Section Styles
+   ========================================== */
+
+.youtube-feed-section {
+    background-color: var(--color-white);
+    padding: 60px 0;
+    width: 100%;
+}
+
+.youtube-feed-container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Header line and text styling */
+.youtube-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.youtube-line {
+    flex-grow: 1;
+    height: 1.5px;
+    background-color: var(--color-black);
+}
+
+.youtube-title-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.youtube-title {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.youtube-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-black);
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.youtube-header-icon:hover {
+    transform: scale(1.08);
+    background-color: var(--color-gold);
+}
+
+.youtube-title-svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-white);
+}
+
+/* Main video frame layout */
+.youtube-player-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-player-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Thumbnail slider/gallery layout */
+.youtube-gallery-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 15px;
+    position: relative;
+}
+
+.youtube-thumbs-scroll {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.youtube-thumb-item {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #000;
+    border: 3px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.youtube-thumb-item.active {
+    border-color: var(--color-gold);
+}
+
+.youtube-thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.youtube-thumb-item:hover img {
+    transform: scale(1.04);
+    opacity: 1;
+}
+
+.youtube-play-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.youtube-play-icon-svg {
+    width: 32px;
+    height: 32px;
+    fill: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.youtube-thumb-item:hover .youtube-play-icon-svg {
+    transform: scale(1.15);
+    fill: var(--color-gold);
+}
+
+/* ==========================================
    Responsive / Mobile Styling Rules
    ========================================== */
 
@@ -1041,6 +1207,25 @@ body {
         font-size: 22px;
     }
 
+    /* YouTube Section Responsive Styles */
+    .youtube-feed-section {
+        padding: 40px 0;
+    }
+
+    .youtube-header {
+        margin-bottom: 25px;
+        gap: 12px;
+    }
+
+    .youtube-title {
+        font-size: 18px;
+    }
+
+    .youtube-thumbs-scroll {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
     /* Instagram Section Responsive Styles */
     .instagram-feed-section {
         padding: 30px 0 50px 0;
@@ -1082,7 +1267,12 @@ body {
 
 @media (max-width: 480px) {
     .home-cards-container {
-        grid-template-columns: 1fr; /* 1 column stacking on mobile */
+        grid-template-columns: 1fr;
         gap: 12px;
+    }
+
+    .youtube-thumbs-scroll {
+        grid-template-columns: 1fr;
+        gap: 8px;
     }
 }
