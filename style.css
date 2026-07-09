@@ -16,9 +16,12 @@ Author: Antigravity
 
 /* Core Color and Typography Design Tokens */
 :root {
-    --color-gold: #F9AD18;       /* Wix rgb(249, 173, 24) */
-    --color-black: #000000;      /* Wix rgb(0, 0, 0) */
-    --color-white: #FFFFFF;      /* Wix rgb(255, 255, 255) */
+    --color-gold: #F9AD18;
+    /* Wix rgb(249, 173, 24) */
+    --color-black: #000000;
+    /* Wix rgb(0, 0, 0) */
+    --color-white: #FFFFFF;
+    /* Wix rgb(255, 255, 255) */
     --color-dark-grey: #111111;
     --font-brand: "avenir-lt-w01_85-heavy1475544", Arial, Helvetica, sans-serif;
     --font-ui: 'helvetica-w01-light', 'helvetica-w02-light', Arial, Helvetica, sans-serif;
@@ -27,7 +30,8 @@ Author: Antigravity
 
 
 /* Structural Reset Layer */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -42,7 +46,9 @@ html, body {
 }
 
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -219,7 +225,8 @@ html, body {
     background-color: var(--color-white);
     border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
-    position: relative; /* Required for absolute positioning of slide-down search */
+    position: relative;
+    /* Required for absolute positioning of slide-down search */
 }
 
 .header-nav-container {
@@ -240,10 +247,11 @@ html, body {
 
 .nav-menu-list li {
     display: block;
-    position: static; /* Allows absolute sub-menus to expand full-width relative to the navbar */
+    position: static;
+    /* Allows absolute sub-menus to expand full-width relative to the navbar */
 }
 
-.nav-menu-list li > a {
+.nav-menu-list li>a {
     display: block;
     padding: 16px 0;
     color: var(--color-black);
@@ -251,18 +259,19 @@ html, body {
     font-family: var(--font-brand);
     font-size: 14px;
     font-weight: 700;
-    text-transform: none; /* Keep natural capitalization like 'Waheguru' */
+    text-transform: none;
+    /* Keep natural capitalization like 'Waheguru' */
     letter-spacing: 0.05em;
     transition: color 0.2s ease;
 }
 
 /* Gold underline on parent nav links hover & active states, except search toggle */
-.nav-menu-list li:not(.menu-item-search) > a {
+.nav-menu-list li:not(.menu-item-search)>a {
     border-bottom: 2px solid transparent;
 }
 
-.nav-menu-list li:not(.menu-item-search):hover > a,
-.nav-menu-list li:not(.menu-item-search).current-menu-item > a {
+.nav-menu-list li:not(.menu-item-search):hover>a,
+.nav-menu-list li:not(.menu-item-search).current-menu-item>a {
     color: var(--color-gold);
     border-bottom-color: var(--color-gold);
 }
@@ -300,7 +309,8 @@ html, body {
     display: inline-block;
     background-color: transparent;
     color: var(--color-black);
-    border: 1.5px solid transparent; /* Keeps sizing layout-friendly when hovered */
+    border: 1.5px solid transparent;
+    /* Keeps sizing layout-friendly when hovered */
     font-family: var(--font-brand);
     font-size: 13px;
     font-weight: 700;
@@ -375,6 +385,7 @@ html, body {
         opacity: 0;
         transform: translateY(-8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -648,7 +659,8 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* Darkens the video to ensure high accessibility contrast */
+    background-color: rgba(0, 0, 0, 0.45);
+    /* Darkens the video to ensure high accessibility contrast */
     z-index: -1;
 }
 
@@ -666,7 +678,8 @@ html, body {
 
 .hero-title-text {
     font-family: var(--font-brand);
-    font-size: 60px; /* Exact size requested */
+    font-size: 60px;
+    /* Exact size requested */
     font-weight: 700;
     line-height: 1.25;
     color: var(--color-white);
@@ -725,7 +738,7 @@ html, body {
         gap: 15px;
         text-align: center;
     }
-    
+
     .header-branding {
         flex-direction: column;
         gap: 10px;
@@ -741,7 +754,8 @@ html, body {
         justify-content: center;
     }
 
-    .btn-live-stream, .btn-donate-now {
+    .btn-live-stream,
+    .btn-donate-now {
         width: 100%;
         max-width: 320px;
         text-align: center;
@@ -752,7 +766,7 @@ html, body {
         flex-wrap: wrap;
         gap: 20px;
     }
-    
+
     .nav-menu-list li a {
         padding: 12px 10px;
     }
@@ -761,15 +775,15 @@ html, body {
     .hero-video-section {
         height: 480px;
     }
-    
+
     .hero-title-text {
         font-size: 32px;
     }
-    
+
     .hero-subtext-text {
         font-size: 15px;
     }
-    
+
     .btn-watch-online {
         padding: 10px 28px;
         font-size: 13px;
@@ -785,7 +799,7 @@ html, body {
         text-align: center;
         gap: 40px;
     }
-    
+
     .footer-column {
         width: 100%;
         max-width: 480px;
