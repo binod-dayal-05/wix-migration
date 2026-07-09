@@ -1,0 +1,413 @@
+/*
+Theme Name: Wix Migration Theme
+Description: High-fidelity recreation of the Sukh Sagar theme.
+Version: 1.0
+Author: Antigravity
+*/
+
+/* Core Color and Typography Design Tokens */
+:root {
+    --color-gold: #F9AD18;       /* Wix rgb(249, 173, 24) */
+    --color-black: #000000;      /* Wix rgb(0, 0, 0) */
+    --color-white: #FFFFFF;      /* Wix rgb(255, 255, 255) */
+    --color-dark-grey: #111111;
+    --font-brand: 'avenir-lt-w01_85-heavy1475544', Arial, Helvetica, sans-serif;
+    --font-ui: 'helvetica-w01-light', 'helvetica-w02-light', Arial, Helvetica, sans-serif;
+    --site-max-width: 1120px;
+}
+
+/* Structural Reset Layer */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-ui);
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* ==========================================
+   Header Component Styles
+   ========================================== */
+
+.site-header {
+    width: 100%;
+    background-color: var(--color-black);
+}
+
+/* Main Top Header Strip */
+.header-main-bar {
+    width: 100%;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-dark-grey);
+}
+
+.header-main-container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Left Section: Branding (Logo + Text) */
+.header-branding {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo-link {
+    display: block;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    display: block;
+    width: 80px;
+    height: 79px;
+    object-fit: contain;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-heading {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.brand-heading a {
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.brand-heading a:hover {
+    opacity: 0.85;
+}
+
+.brand-subheading {
+    color: var(--color-gold);
+}
+
+/* Right Section: Socials & Action Buttons */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.social-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+    background-color: var(--color-gold);
+}
+
+.social-svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-black);
+    display: block;
+    transition: fill 0.2s ease;
+}
+
+.social-link:hover .social-svg {
+    fill: var(--color-white);
+}
+
+/* Live Stream ghost button */
+.btn-live-stream {
+    display: inline-block;
+    border: 1.5px solid var(--color-gold);
+    color: var(--color-gold);
+    background-color: transparent;
+    font-family: var(--font-brand);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 22px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-live-stream:hover {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
+}
+
+/* Donate Now solid button */
+.btn-donate-now {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border: 1.5px solid var(--color-gold);
+    font-family: var(--font-brand);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 22px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-donate-now:hover {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
+}
+
+/* ==========================================
+   Navigation Menu Styles
+   ========================================== */
+
+.header-nav-bar {
+    width: 100%;
+    background-color: var(--color-white);
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    position: relative; /* Required for absolute positioning of slide-down search */
+}
+
+.header-nav-container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu-list li {
+    display: block;
+}
+
+.nav-menu-list li a {
+    display: block;
+    padding: 16px 0;
+    color: var(--color-black);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: none; /* Keep natural capitalization like 'Waheguru' */
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.nav-menu-list li a:hover,
+.nav-menu-list li.current-menu-item a {
+    color: var(--color-gold);
+}
+
+/* Search menu item alignment and icon rules */
+.menu-item-search {
+    display: inline-flex;
+    align-items: center;
+}
+
+.menu-item-search a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0 !important;
+    cursor: pointer;
+}
+
+.search-icon-svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-black);
+    transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+.menu-item-search a:hover .search-icon-svg {
+    fill: var(--color-gold);
+    transform: scale(1.08);
+}
+
+/* ==========================================
+   Slide-down Search Bar Dropdown Overlay
+   ========================================== */
+
+.search-overlay-bar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border-bottom: 2px solid var(--color-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 12px 20px;
+    z-index: 1000;
+    display: none;
+    box-sizing: border-box;
+}
+
+.search-overlay-bar.active {
+    display: block;
+    animation: slideDownNavSearch 0.2s ease-out forwards;
+}
+
+@keyframes slideDownNavSearch {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-bar-container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-form {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    background-color: #fafafa;
+    padding: 2px 16px;
+}
+
+.search-field {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 15px;
+    font-family: var(--font-ui);
+    color: var(--color-black);
+    outline: none;
+}
+
+.search-submit {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-submit .search-icon-svg {
+    width: 18px;
+    height: 18px;
+    fill: #777;
+}
+
+.search-submit:hover .search-icon-svg {
+    fill: var(--color-gold);
+}
+
+.search-close-btn {
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    color: #888;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.search-close-btn:hover {
+    color: var(--color-gold);
+}
+
+/* ==========================================
+   Responsive / Mobile Styling Rules
+   ========================================== */
+
+@media (max-width: 820px) {
+    .header-main-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .header-branding {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .social-bar {
+        justify-content: center;
+    }
+
+    .btn-live-stream, .btn-donate-now {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    .nav-menu-list {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .nav-menu-list li a {
+        padding: 12px 10px;
+    }
+}
