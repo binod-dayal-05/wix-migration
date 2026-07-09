@@ -31,12 +31,33 @@ add_action( 'wp_enqueue_scripts', 'wix_migration_scripts' );
 function wix_migration_fallback_menu() {
     echo '<ul class="nav-menu-list fallback-menu">';
     echo '<li class="menu-item"><a href="' . esc_url( home_url( '/' ) ) . '">Home</a></li>';
-    echo '<li class="menu-item"><a href="#">Waheguru</a></li>';
-    echo '<li class="menu-item"><a href="#">You</a></li>';
-    echo '<li class="menu-item"><a href="#">Us</a></li>';
+    
+    // Waheguru Dropdown Menu
+    echo '<li class="menu-item menu-item-has-children"><a href="#">Waheguru</a>';
+    echo '<ul class="sub-menu">';
+    echo '<li class="menu-item"><a href="#">Guru Sahibaan</a></li>';
+    echo '</ul>';
+    echo '</li>';
+    
+    // You Dropdown Menu
+    echo '<li class="menu-item menu-item-has-children"><a href="#">You</a>';
+    echo '<ul class="sub-menu">';
+    echo '<li class="menu-item"><a href="#">Naam Japna</a></li>';
+    echo '</ul>';
+    echo '</li>';
+    
+    // Us Dropdown Menu
+    echo '<li class="menu-item menu-item-has-children"><a href="#">Us</a>';
+    echo '<ul class="sub-menu">';
+    echo '<li class="menu-item"><a href="#">Visiting Us</a></li>';
+    echo '<li class="menu-item"><a href="#">Who We Are</a></li>';
+    echo '</ul>';
+    echo '</li>';
+    
     echo '<li class="menu-item menu-item-search"><a href="#" class="search-toggle-btn" aria-label="Open Search"><svg class="search-icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></a></li>';
     echo '</ul>';
 }
+
 
 /**
  * Filter to append search icon to main nav menu

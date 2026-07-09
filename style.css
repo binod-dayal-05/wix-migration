@@ -5,16 +5,26 @@ Version: 1.0
 Author: Antigravity
 */
 
+/* Load Wix Avenir Brand Font Face */
+@font-face {
+    font-family: "avenir-lt-w01_85-heavy1475544";
+    src: url("https://static.parastorage.com/fonts/v2/74290729-59ae-4129-87d0-2eec3974dce1/v1/avenir-lt-w05_85-heavy.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Core Color and Typography Design Tokens */
 :root {
     --color-gold: #F9AD18;       /* Wix rgb(249, 173, 24) */
     --color-black: #000000;      /* Wix rgb(0, 0, 0) */
     --color-white: #FFFFFF;      /* Wix rgb(255, 255, 255) */
     --color-dark-grey: #111111;
-    --font-brand: 'avenir-lt-w01_85-heavy1475544', Arial, Helvetica, sans-serif;
+    --font-brand: "avenir-lt-w01_85-heavy1475544", Arial, Helvetica, sans-serif;
     --font-ui: 'helvetica-w01-light', 'helvetica-w02-light', Arial, Helvetica, sans-serif;
     --site-max-width: 1120px;
 }
+
 
 /* Structural Reset Layer */
 html, body {
@@ -26,10 +36,16 @@ html, body {
     font-family: var(--font-ui);
     box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
+
 
 *, *:before, *:after {
     box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================
@@ -224,14 +240,15 @@ html, body {
 
 .nav-menu-list li {
     display: block;
+    position: static; /* Allows absolute sub-menus to expand full-width relative to the navbar */
 }
 
-.nav-menu-list li a {
+.nav-menu-list li > a {
     display: block;
     padding: 16px 0;
     color: var(--color-black);
     text-decoration: none;
-    font-family: var(--font-ui);
+    font-family: var(--font-brand);
     font-size: 14px;
     font-weight: 700;
     text-transform: none; /* Keep natural capitalization like 'Waheguru' */
@@ -239,9 +256,69 @@ html, body {
     transition: color 0.2s ease;
 }
 
-.nav-menu-list li a:hover,
-.nav-menu-list li.current-menu-item a {
+/* Gold underline on parent nav links hover & active states, except search toggle */
+.nav-menu-list li:not(.menu-item-search) > a {
+    border-bottom: 2px solid transparent;
+}
+
+.nav-menu-list li:not(.menu-item-search):hover > a,
+.nav-menu-list li:not(.menu-item-search).current-menu-item > a {
     color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
+}
+
+/* ==========================================
+   Submenu Dropdown Panel Styles (Mega Menu)
+   ========================================== */
+
+.nav-menu-list .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 24px 20px;
+    list-style: none;
+    margin: 0;
+    z-index: 999;
+}
+
+/* Show submenu when hovering over parent item */
+.nav-menu-list li:hover .sub-menu {
+    display: flex;
+    animation: slideDownNavSearch 0.18s ease-out forwards;
+}
+
+/* Submenu dropdown buttons default style */
+.nav-menu-list .sub-menu li a {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-black);
+    border: 1.5px solid transparent; /* Keeps sizing layout-friendly when hovered */
+    font-family: var(--font-brand);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 22px;
+    min-width: 160px;
+    text-align: center;
+    border-radius: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Submenu dropdown buttons hover style */
+.nav-menu-list .sub-menu li a:hover {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
 }
 
 /* Search menu item alignment and icon rules */
@@ -389,10 +466,11 @@ html, body {
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     gap: 40px;
 }
+
 
 /* Footer columns spacing and alignment */
 .footer-column {
@@ -524,6 +602,119 @@ html, body {
 }
 
 /* ==========================================
+   Hero Video Section Styles
+   ========================================== */
+
+.hero-video-section {
+    position: relative;
+    width: 100%;
+    height: 573px;
+    overflow: hidden;
+    background-color: var(--color-black);
+}
+
+.video-background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.hero-overlay-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Darkens the video to ensure high accessibility contrast */
+    z-index: -1;
+}
+
+.hero-inner-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-heading-wrapper {
+    margin-bottom: 25px;
+}
+
+.hero-title-text {
+    font-family: var(--font-brand);
+    font-size: 60px; /* Exact size requested */
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.hero-subtext-wrapper {
+    margin-bottom: 35px;
+    max-width: 600px;
+}
+
+.hero-subtext-text {
+    font-family: var(--font-brand);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.8em;
+    color: var(--color-white);
+    margin: 0;
+    letter-spacing: normal;
+    text-transform: none;
+    font-style: normal;
+    font-stretch: 100%;
+}
+
+.btn-watch-online {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border: 1.5px solid var(--color-gold);
+    font-family: var(--font-brand);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 36px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-watch-online:hover {
+    background-color: var(--color-white);
+    color: var(--color-gold);
+    border-color: var(--color-white);
+}
+
+/* ==========================================
    Responsive / Mobile Styling Rules
    ========================================== */
 
@@ -564,6 +755,27 @@ html, body {
     
     .nav-menu-list li a {
         padding: 12px 10px;
+    }
+
+    /* Hero Section Responsive Styling */
+    .hero-video-section {
+        height: 480px;
+    }
+    
+    .hero-title-text {
+        font-size: 32px;
+    }
+    
+    .hero-subtext-text {
+        font-size: 15px;
+    }
+    
+    .btn-watch-online {
+        padding: 10px 28px;
+        font-size: 13px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
     }
 
     /* Footer Responsive Styling */
