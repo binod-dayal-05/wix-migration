@@ -369,6 +369,161 @@ html, body {
 }
 
 /* ==========================================
+   Footer Component Styles
+   ========================================== */
+
+.site-footer {
+    width: 100%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.footer-main-bar {
+    width: 100%;
+    padding: 60px 0;
+}
+
+.footer-main-container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* Footer columns spacing and alignment */
+.footer-column {
+    flex: 1 1 300px;
+}
+
+/* Brand Column styling */
+.footer-brand-col {
+    max-width: 350px;
+}
+
+.footer-branding {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-logo-img {
+    display: block;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-brand-title {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--color-gold);
+    text-transform: uppercase;
+}
+
+/* Section Title (Contact Us) */
+.footer-section-title {
+    margin: 0 0 25px 0;
+    font-family: var(--font-brand);
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-white);
+    letter-spacing: 0.05em;
+}
+
+/* Contact Details List styling */
+.contact-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contact-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.contact-icon-svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-white);
+}
+
+.contact-detail-text {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--color-white);
+}
+
+.contact-detail-text a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-detail-text a:hover {
+    color: var(--color-gold);
+}
+
+/* Google Map Column styling */
+.footer-map-col {
+    max-width: 400px;
+    width: 100%;
+}
+
+.footer-map-wrapper {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer-map-wrapper iframe {
+    display: block;
+}
+
+/* Bottom Copyright Bar (Gold) */
+.footer-copyright-strip {
+    width: 100%;
+    background-color: var(--color-gold);
+    padding: 15px 0;
+}
+
+.footer-copyright-container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.copyright-text {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================
    Responsive / Mobile Styling Rules
    ========================================== */
 
@@ -409,5 +564,29 @@ html, body {
     
     .nav-menu-list li a {
         padding: 12px 10px;
+    }
+
+    /* Footer Responsive Styling */
+    .footer-main-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-column {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-branding {
+        flex-direction: column;
+    }
+
+    .contact-detail-item {
+        justify-content: center;
     }
 }
