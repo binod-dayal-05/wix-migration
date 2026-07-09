@@ -858,6 +858,93 @@ body {
 }
 
 /* ==========================================
+   Homepage Cards Section Styles
+   ========================================== */
+
+.home-cards-section {
+    background-color: var(--color-white);
+    padding: 0 20px 80px 20px; /* Sits right below the text block */
+    width: 100%;
+}
+
+.home-cards-container {
+    max-width: 1054px; /* Wix exact container width */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.home-card-item {
+    position: relative;
+    display: block;
+    aspect-ratio: 3 / 4; /* Portrait proportional aspect ratio matching screenshot */
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: #f7f7f7;
+}
+
+.home-card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Semi-transparent dark overlay for high text contrast readability */
+.home-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.home-card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.home-card-title {
+    font-family: var(--font-brand);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.25;
+    text-transform: none; /* Keep capitalization like 'Daily Schedule' */
+    -webkit-font-smoothing: antialiased;
+    transition: transform 0.3s ease;
+}
+
+/* Premium Hover Transitions */
+.home-card-item:hover img {
+    transform: scale(1.05);
+}
+
+.home-card-item:hover .home-card-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.home-card-item:hover .home-card-title {
+    transform: translateY(-2px);
+}
+
+/* ==========================================
    Responsive / Mobile Styling Rules
    ========================================== */
 
@@ -940,6 +1027,20 @@ body {
         line-height: 1.7;
     }
 
+    /* Welcome Cards Responsive Styling */
+    .home-cards-section {
+        padding: 0 20px 50px 20px;
+    }
+
+    .home-cards-container {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablet */
+        gap: 8px;
+    }
+    
+    .home-card-title {
+        font-size: 22px;
+    }
+
     /* Instagram Section Responsive Styles */
     .instagram-feed-section {
         padding: 30px 0 50px 0;
@@ -976,5 +1077,12 @@ body {
 
     .contact-detail-item {
         justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-cards-container {
+        grid-template-columns: 1fr; /* 1 column stacking on mobile */
+        gap: 12px;
     }
 }

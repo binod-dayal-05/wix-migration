@@ -73,6 +73,49 @@ get_header();
     </div>
 </section>
 
+<!-- Welcome & Mission Grid Cards Section -->
+<section class="home-cards-section">
+    <div class="home-cards-container">
+        
+        <!-- Card 1: Daily Schedule -->
+        <a href="#" class="home-card-item">
+            <img src="https://static.wixstatic.com/media/09d5c1e4485445d7a3f8557da554399d.jpg" alt="Daily Schedule">
+            <div class="home-card-overlay"></div>
+            <div class="home-card-content">
+                <span class="home-card-title">Daily<br>Schedule</span>
+            </div>
+        </a>
+
+        <!-- Card 2: Education (Vidiaa) -->
+        <a href="#" class="home-card-item">
+            <img src="https://static.wixstatic.com/media/de08ede422e848f799ce578001128e0d.jpg" alt="Education (Vidiaa)">
+            <div class="home-card-overlay"></div>
+            <div class="home-card-content">
+                <span class="home-card-title">Education<br>(Vidiaa)</span>
+            </div>
+        </a>
+
+        <!-- Card 3: Spiritual Knowledge -->
+        <a href="#" class="home-card-item">
+            <img src="https://static.wixstatic.com/media/nsplsh_4f4254692d786746664567~mv2.jpg" alt="Spiritual Knowledge">
+            <div class="home-card-overlay"></div>
+            <div class="home-card-content">
+                <span class="home-card-title">Spiritual<br>Knowledge</span>
+            </div>
+        </a>
+
+        <!-- Card 4: Vand Chakna -->
+        <a href="#" class="home-card-item">
+            <img src="https://static.wixstatic.com/media/nsplsh_7559544b7a5670386c6f51~mv2.jpg" alt="Vand Chakna">
+            <div class="home-card-overlay"></div>
+            <div class="home-card-content">
+                <span class="home-card-title">Vand<br>Chakna</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
 <!-- Instagram Post Scroller Section -->
 <section class="instagram-feed-section">
     <div class="instagram-feed-container">
