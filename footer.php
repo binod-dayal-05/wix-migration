@@ -10,7 +10,7 @@
             <!-- Column 1: Brand Info -->
             <div class="footer-column footer-brand-col">
                 <div class="footer-branding">
-                    <img class="footer-logo-img" src="https://static.wixstatic.com/media/07134b_552e4e21b4574c4496aaa2df2157b9d7~mv2.png/v1/fill/w_80,h_79,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png" alt="Gurdwara Sahib Sukh Sagar Logo" width="100" height="99">
+                    <img class="footer-logo-img" src="https://static.wixstatic.com/media/07134b_552e4e21b4574c4496aaa2df2157b9d7~mv2.png/v1/fill/w_254,h_240,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png" alt="Gurdwara Sahib Sukh Sagar Logo" width="100" height="99">
                     <h3 class="footer-brand-title">Gurdwara Sahib<br>Sukh Sagar</h3>
                 </div>
             </div>

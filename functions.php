@@ -35,22 +35,22 @@ function wix_migration_fallback_menu() {
     // Waheguru Dropdown Menu
     echo '<li class="menu-item menu-item-has-children"><a href="#">Waheguru</a>';
     echo '<ul class="sub-menu">';
-    echo '<li class="menu-item"><a href="#">Guru Sahibaan</a></li>';
+    echo '<li class="menu-item"><a href="' . esc_url( home_url( '/guru-sahibaan/' ) ) . '">Guru Sahibaan</a></li>';
     echo '</ul>';
     echo '</li>';
     
     // You Dropdown Menu
     echo '<li class="menu-item menu-item-has-children"><a href="#">You</a>';
     echo '<ul class="sub-menu">';
-    echo '<li class="menu-item"><a href="#">Naam Japna</a></li>';
+    echo '<li class="menu-item"><a href="' . esc_url( home_url( '/naam-japna/' ) ) . '">Naam Japna</a></li>';
     echo '</ul>';
     echo '</li>';
     
     // Us Dropdown Menu
     echo '<li class="menu-item menu-item-has-children"><a href="#">Us</a>';
     echo '<ul class="sub-menu">';
-    echo '<li class="menu-item"><a href="#">Visiting Us</a></li>';
-    echo '<li class="menu-item"><a href="#">Who We Are</a></li>';
+    echo '<li class="menu-item"><a href="' . esc_url( home_url( '/visiting-us/' ) ) . '">Visiting Us</a></li>';
+    echo '<li class="menu-item"><a href="' . esc_url( home_url( '/who-we-are/' ) ) . '">Who We Are</a></li>';
     echo '</ul>';
     echo '</li>';
     
