@@ -1,8 +1,8 @@
 /*
-Theme Name: Wix Migration Theme
-Description: High-fidelity recreation of the Sukh Sagar theme.
+Theme Name: Sukh Sagar Theme
+Description: Sukh Sagar Theme based on Wix design.
 Version: 1.0
-Author: Antigravity
+Author: Binod Dayal
 */
 
 /* Load Wix Avenir Brand Font Face */
@@ -2062,7 +2062,7 @@ body {
 
     .exhibition-carousel-wrapper .carousel-arrow {
         display: none;
-        /* Hide navigation arrows on phone screens to allow full width swiping */
+        /* hide arrows on mobile, just swipe */
     }
 
     .exhibit-column {
@@ -2077,4 +2077,62 @@ body {
     .exhibit-card.short {
         height: 106px;
     }
+}
+
+/* lightbox modal for the exhibitions gallery */
+.exhibit-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.exhibit-lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 50px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+    line-height: 1;
+}
+.lightbox-close:hover {
+    color: #cca43b;
+    transform: scale(1.1);
+}
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exhibit-lightbox.open .lightbox-content img {
+    transform: scale(1);
 }

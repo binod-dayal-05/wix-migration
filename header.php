@@ -17,8 +17,24 @@
             
             <!-- Branding: Logo and Title -->
             <div class="header-branding">
+                <?php
+                $logo_url = function_exists('get_field') ? get_field('site_logo', 'option') : null;
+                if ( !$logo_url ) {
+                    $logo_url = 'https://static.wixstatic.com/media/07134b_552e4e21b4574c4496aaa2df2157b9d7~mv2.png/v1/fill/w_254,h_240,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png';
+                }
+
+                $youtube_url = function_exists('get_field') ? get_field('youtube_url', 'option') : 'https://www.youtube.com/user/gurdwarasukhsagar';
+                $soundcloud_url = function_exists('get_field') ? get_field('soundcloud_url', 'option') : 'https://soundcloud.com/gurdwara-sahib-sukh-sagar';
+                $instagram_url = function_exists('get_field') ? get_field('instagram_url', 'option') : 'https://www.instagram.com/gurdwara_sukh_sagar/';
+                $facebook_url = function_exists('get_field') ? get_field('facebook_url', 'option') : 'https://www.facebook.com/Gurdwarasahibsukhsagar/';
+                $tiktok_url = function_exists('get_field') ? get_field('tiktok_url', 'option') : 'https://www.tiktok.com/@gurdwara.sukhsagar';
+                $x_url = function_exists('get_field') ? get_field('x_url', 'option') : 'https://x.com/SukhSagarNW';
+
+                $live_stream_url = function_exists('get_field') ? get_field('live_stream_url', 'option') : 'https://www.youtube.com/user/gurdwarasukhsagar';
+                $donate_now_url = function_exists('get_field') ? get_field('donate_now_url', 'option') : '#';
+                ?>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
-                    <img class="logo-img" src="https://static.wixstatic.com/media/07134b_552e4e21b4574c4496aaa2df2157b9d7~mv2.png/v1/fill/w_254,h_240,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png" alt="Gurdwara Sahib Sukh Sagar Logo" width="80" height="79">
+                    <img class="logo-img" src="<?php echo esc_url( $logo_url ); ?>" alt="Gurdwara Sahib Sukh Sagar Logo" width="80" height="79">
                 </a>
                 <div class="header-title">
                     <h3 class="brand-heading">
@@ -34,34 +50,34 @@
                 <!-- Social Bar -->
                 <div class="social-bar">
                     <!-- YouTube -->
-                    <a href="https://www.youtube.com/user/gurdwarasukhsagar" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <a href="<?php echo esc_url( $youtube_url ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                         <svg viewBox="0 0 24 24" class="social-svg"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.03 0 12 0 12s0 3.97.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.508 9.388.508 9.388.508s7.53 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.97 24 12 24 12s0-3.97-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                     <!-- SoundCloud -->
-                    <a href="https://soundcloud.com/gurdwara-sahib-sukh-sagar" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
+                    <a href="<?php echo esc_url( $soundcloud_url ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
                         <svg viewBox="0 0 24 24" class="social-svg"><path d="M10.37 15.63a.56.56 0 0 0 .56-.56V9.06a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v6.01a.56.56 0 0 0 .56.56zm-1.87-.56V9.81a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v5.26a.56.56 0 0 0 .56.56.56.56 0 0 0 .56-.56zm3.75.56a.56.56 0 0 0 .56-.56V8.31a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v6.76a.56.56 0 0 0 .56.56zm1.88-.38a.56.56 0 0 0 .56-.56v-6.2a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v6.2a.56.56 0 0 0 .56.56zm5.63.38c1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92c-.17 0-.33.02-.5.06a3.64 3.64 0 0 0-6.93-.94.56.56 0 0 0-.56.56v6.16c0 .31.25.56.56.56h7.43zM6.63 14.5a.56.56 0 0 0 .56-.56v-4.13a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v4.13c0 .31.25.56.56.56zm-1.88-.75V10.56a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v3.19a.56.56 0 0 0 .56.56.56.56 0 0 0 .56-.56zm-1.87-.75v-1.69a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56v1.69a.56.56 0 0 0 .56.56.56.56 0 0 0 .56-.56zM.94 13v-.37a.56.56 0 0 0-.56-.56.56.56 0 0 0-.56.56V13a.56.56 0 0 0 .56.56c.31 0 .56-.25.56-.56z"/></svg>
                     </a>
                     <!-- Instagram -->
-                    <a href="https://www.instagram.com/gurdwara_sukh_sagar/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <a href="<?php echo esc_url( $instagram_url ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" class="social-svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
                     <!-- Facebook -->
-                    <a href="https://www.facebook.com/Gurdwarasahibsukhsagar/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <a href="<?php echo esc_url( $facebook_url ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" class="social-svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
                     </a>
                     <!-- TikTok -->
-                    <a href="https://www.tiktok.com/@gurdwara.sukhsagar" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <a href="<?php echo esc_url( $tiktok_url ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                         <svg viewBox="0 0 24 24" class="social-svg"><path d="M12.525.02c1.31 0 2.569.345 3.666.953V0h3.29a6.452 6.452 0 0 0 2.932 4.556v3.297a9.697 9.697 0 0 1-4.887-1.32v7.924a7.447 7.447 0 0 1-7.447 7.447 7.447 7.447 0 0 1-7.447-7.447 7.447 7.447 0 0 1 7.447-7.447c.365 0 .723.029 1.074.086V10.1c-.352-.047-.709-.071-1.074-.071a4.444 4.444 0 0 0-4.444 4.444 4.444 4.444 0 0 0 4.444 4.444 4.444 4.444 0 0 0 4.444-4.444V.02z"/></svg>
                     </a>
                     <!-- X (Twitter) -->
-                    <a href="https://x.com/SukhSagarNW" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <a href="<?php echo esc_url( $x_url ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X">
                         <svg viewBox="0 0 24 24" class="social-svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
                 </div>
 
                 <!-- Call to Action Buttons -->
-                <a href="https://www.youtube.com/user/gurdwarasukhsagar" class="btn-live-stream" target="_blank" rel="noopener noreferrer">Live Stream</a>
-                <a href="#" class="btn-donate-now">Donate Now</a>
+                <a href="<?php echo esc_url( $live_stream_url ); ?>" class="btn-live-stream" target="_blank" rel="noopener noreferrer">Live Stream</a>
+                <a href="<?php echo esc_url( $donate_now_url ); ?>" class="btn-donate-now">Donate Now</a>
             </div>
 
         </div>

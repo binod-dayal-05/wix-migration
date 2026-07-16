@@ -1,8 +1,42 @@
 <?php
-/**
- * Main index template
- */
+// Template Name: Home Page
+// Description: Custom template for the front/landing page.
+
 get_header();
+
+// hero section settings
+$hero_video_url = function_exists('get_field') ? get_field('hero_video_url') : 'https://video.wixstatic.com/video/11062b_985fc3d340b04ef583eeb20943f22ab8/720p/mp4/file.mp4';
+$hero_title = function_exists('get_field') ? get_field('hero_title') : 'WAHEGURU JI KA KHALSA,<br>WAHEGURU JI KI FATEH!';
+$hero_subtext = function_exists('get_field') ? get_field('hero_subtext') : 'Join our community in prayer, seva, and spiritual learning.';
+$watch_online_url = function_exists('get_field') ? get_field('watch_online_url') : (function_exists('get_field') ? get_field('live_stream_url', 'option') : 'https://www.youtube.com/user/gurdwarasukhsagar');
+$youtube_url = function_exists('get_field') ? get_field('youtube_url', 'option') : 'https://www.youtube.com/user/gurdwarasukhsagar';
+$instagram_url = function_exists('get_field') ? get_field('instagram_url', 'option') : 'https://www.instagram.com/gurdwara_sukh_sagar/';
+
+
+// welcome text and mission text
+$welcome_title = function_exists('get_field') ? get_field('welcome_title') : 'Welcome to our Gurdwara!';
+$welcome_text_default = "A Gurdwara is the place where Sikhs come together for congregational worship. The literal meaning of the Punjabi word Gurdwara is 'the residence of the Guru', or 'the door that leads to the Guru'. In a modern Gurdwara, the Guru is not a person but the book of Sikh scriptures called the Sri Guru Granth Sahib.\n\nWe welcome everyone, all genders, race and all faiths to come visit us and learn more about us.";
+$welcome_text = function_exists('get_field') ? get_field('welcome_text') : $welcome_text_default;
+
+$mission_title = function_exists('get_field') ? get_field('mission_title') : 'Our Mission';
+$mission_text = function_exists('get_field') ? get_field('mission_text') : 'To connect and grow the community through spiritual, educational, social and sports programs with a focus on youth and families.';
+
+// homepage grid cards
+$card_1_link = function_exists('get_field') ? get_field('card_1_link') : '#';
+$card_1_img = function_exists('get_field') ? get_field('card_1_image') : 'https://static.wixstatic.com/media/11062b_308dbaa37c744be982851c6e87135522~mv2.jpg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_308dbaa37c744be982851c6e87135522~mv2.jpg';
+$card_1_title = function_exists('get_field') ? get_field('card_1_title') : 'Daily<br>Schedule';
+
+$card_2_link = function_exists('get_field') ? get_field('card_2_link') : '#';
+$card_2_img = function_exists('get_field') ? get_field('card_2_image') : 'https://static.wixstatic.com/media/11062b_39ef5df3c7f24a6e990836f542aa56ec~mv2_d_5184_3456_s_4_2.jpg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_39ef5df3c7f24a6e990836f542aa56ec~mv2_d_5184_3456_s_4_2.jpg';
+$card_2_title = function_exists('get_field') ? get_field('card_2_title') : 'Education<br>(Vidiaa)';
+
+$card_3_link = function_exists('get_field') ? get_field('card_3_link') : '#';
+$card_3_img = function_exists('get_field') ? get_field('card_3_image') : 'https://static.wixstatic.com/media/11062b_532bdfe0394b41af9571cf0c692c0ea4~mv2.jpeg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_532bdfe0394b41af9571cf0c692c0ea4~mv2.jpeg';
+$card_3_title = function_exists('get_field') ? get_field('card_3_title') : 'Spiritual<br>Knowledge';
+
+$card_4_link = function_exists('get_field') ? get_field('card_4_link') : '#';
+$card_4_img = function_exists('get_field') ? get_field('card_4_image') : 'https://static.wixstatic.com/media/11062b_f68ce489130a47c59b8de76b5b20b78b~mv2.jpg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_f68ce489130a47c59b8de76b5b20b78b~mv2.jpg';
+$card_4_title = function_exists('get_field') ? get_field('card_4_title') : 'Vand<br>Chakna';
 ?>
 
 <!-- Hero Video Section -->
@@ -11,8 +45,7 @@ get_header();
     <!-- Video Background Layer -->
     <div class="video-background-layer">
         <video autoplay muted loop playsinline class="hero-video-bg">
-            <source src="https://video.wixstatic.com/video/11062b_985fc3d340b04ef583eeb20943f22ab8/720p/mp4/file.mp4"
-                type="video/mp4">
+            <source src="<?php echo esc_url( $hero_video_url ); ?>" type="video/mp4">
         </video>
     </div>
 
@@ -25,20 +58,21 @@ get_header();
             <!-- Main Heading -->
             <div class="hero-heading-wrapper">
                 <h1 class="hero-title-text">
-                    WAHEGURU JI KA KHALSA,<br>WAHEGURU JI KI FATEH!
+                    <?php echo wp_kses_post( $hero_title ); ?>
                 </h1>
             </div>
 
             <!-- Subtext -->
             <div class="hero-subtext-wrapper">
                 <p class="hero-subtext-text">
-                    Join our community in prayer, seva, and spiritual learning.
+                    <?php echo esc_html( $hero_subtext ); ?>
                 </p>
             </div>
 
             <!-- Call to Action Button -->
             <div class="hero-btn-wrapper">
-                <a href="https://www.youtube.com/user/gurdwarasukhsagar" class="btn-watch-online" target="_blank" rel="noopener noreferrer">
+                <a href="<?php echo esc_url( $watch_online_url ); ?>" class="btn-watch-online" target="_blank"
+                    rel="noopener noreferrer">
                     Watch Online
                 </a>
             </div>
@@ -52,25 +86,29 @@ get_header();
 
         <!-- Welcome Block -->
         <div class="welcome-block">
-            <h2 class="section-heading">Welcome to our Gurdwara!</h2>
-            <div class="section-divider-line"></div>
-            <p class="section-paragraph">
-                A Gurdwara is the place where Sikhs come together for congregational worship. The literal meaning of the
-                Punjabi word Gurdwara is 'the residence of the Guru', or 'the door that leads to the Guru'. In a modern
-                Gurdwara, the Guru is not a person but the book of Sikh scriptures called the Sri Guru Granth Sahib.
-            </p>
-            <p class="section-paragraph">
-                We welcome everyone, all genders, race and all faiths to come visit us and learn more about us.
-            </p>
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                <?php if ( get_the_content() ) : ?>
+                    <h2 class="section-heading"><?php the_title(); ?></h2>
+                    <div class="section-divider-line"></div>
+                    <div class="section-paragraph">
+                        <?php the_content(); ?>
+                    </div>
+                <?php else : ?>
+                    <h2 class="section-heading"><?php echo esc_html( $welcome_title ); ?></h2>
+                    <div class="section-divider-line"></div>
+                    <div class="section-paragraph">
+                        <?php echo wpautop( esc_html( $welcome_text ) ); ?>
+                    </div>
+                <?php endif; ?>
+            <?php endwhile; endif; ?>
         </div>
 
         <!-- Mission Block -->
         <div class="mission-block">
-            <h2 class="section-heading">Our Mission</h2>
+            <h2 class="section-heading"><?php echo esc_html( $mission_title ); ?></h2>
             <div class="section-divider-line"></div>
             <p class="section-paragraph">
-                To connect and grow the community through spiritual, educational, social and sports programs with a
-                focus on youth and families.
+                <?php echo esc_html( $mission_text ); ?>
             </p>
         </div>
 
@@ -82,38 +120,38 @@ get_header();
     <div class="home-cards-container">
 
         <!-- Card 1: Daily Schedule -->
-        <a href="#" class="home-card-item">
-            <img src="https://static.wixstatic.com/media/11062b_308dbaa37c744be982851c6e87135522~mv2.jpg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_308dbaa37c744be982851c6e87135522~mv2.jpg" alt="Daily Schedule">
+        <a href="<?php echo esc_url( $card_1_link ); ?>" class="home-card-item">
+            <img src="<?php echo esc_url( $card_1_img ); ?>" alt="<?php echo esc_attr( strip_tags($card_1_title) ); ?>">
             <div class="home-card-overlay"></div>
             <div class="home-card-content">
-                <span class="home-card-title">Daily<br>Schedule</span>
+                <span class="home-card-title"><?php echo wp_kses_post( $card_1_title ); ?></span>
             </div>
         </a>
 
         <!-- Card 2: Education (Vidiaa) -->
-        <a href="#" class="home-card-item">
-            <img src="https://static.wixstatic.com/media/11062b_39ef5df3c7f24a6e990836f542aa56ec~mv2_d_5184_3456_s_4_2.jpg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_39ef5df3c7f24a6e990836f542aa56ec~mv2_d_5184_3456_s_4_2.jpg" alt="Education (Vidiaa)">
+        <a href="<?php echo esc_url( $card_2_link ); ?>" class="home-card-item">
+            <img src="<?php echo esc_url( $card_2_img ); ?>" alt="<?php echo esc_attr( strip_tags($card_2_title) ); ?>">
             <div class="home-card-overlay"></div>
             <div class="home-card-content">
-                <span class="home-card-title">Education<br>(Vidiaa)</span>
+                <span class="home-card-title"><?php echo wp_kses_post( $card_2_title ); ?></span>
             </div>
         </a>
 
         <!-- Card 3: Spiritual Knowledge -->
-        <a href="#" class="home-card-item">
-            <img src="https://static.wixstatic.com/media/11062b_532bdfe0394b41af9571cf0c692c0ea4~mv2.jpeg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_532bdfe0394b41af9571cf0c692c0ea4~mv2.jpeg" alt="Spiritual Knowledge">
+        <a href="<?php echo esc_url( $card_3_link ); ?>" class="home-card-item">
+            <img src="<?php echo esc_url( $card_3_img ); ?>" alt="<?php echo esc_attr( strip_tags($card_3_title) ); ?>">
             <div class="home-card-overlay"></div>
             <div class="home-card-content">
-                <span class="home-card-title">Spiritual<br>Knowledge</span>
+                <span class="home-card-title"><?php echo wp_kses_post( $card_3_title ); ?></span>
             </div>
         </a>
 
         <!-- Card 4: Vand Chakna -->
-        <a href="#" class="home-card-item">
-            <img src="https://static.wixstatic.com/media/11062b_f68ce489130a47c59b8de76b5b20b78b~mv2.jpg/v1/fill/w_362,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_f68ce489130a47c59b8de76b5b20b78b~mv2.jpg" alt="Vand Chakna">
+        <a href="<?php echo esc_url( $card_4_link ); ?>" class="home-card-item">
+            <img src="<?php echo esc_url( $card_4_img ); ?>" alt="<?php echo esc_attr( strip_tags($card_4_title) ); ?>">
             <div class="home-card-overlay"></div>
             <div class="home-card-content">
-                <span class="home-card-title">Vand<br>Chakna</span>
+                <span class="home-card-title"><?php echo wp_kses_post( $card_4_title ); ?></span>
             </div>
         </a>
 
@@ -129,7 +167,7 @@ get_header();
             <span class="youtube-line"></span>
             <div class="youtube-title-box">
                 <h2 class="youtube-title">Latest posts from Youtube</h2>
-                <a href="https://www.youtube.com/@GurdwaraSahibSukhSagar" target="_blank" rel="noopener noreferrer"
+                <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" rel="noopener noreferrer"
                     class="youtube-header-icon" aria-label="YouTube Link">
                     <svg viewBox="0 0 24 24" class="youtube-title-svg">
                         <path
@@ -157,8 +195,8 @@ get_header();
 
             <div class="youtube-thumbs-scroll" id="yt-thumbs-container">
                 <!-- Video 1 -->
-                <div class="youtube-thumb-item active" data-video-id="qA0n2kG7Cfs">
-                    <img src="https://img.youtube.com/vi/qA0n2kG7Cfs/mqdefault.jpg" alt="Nitnem & Asa Di Vaar">
+                <div class="youtube-thumb-item active" data-video-id="MyvqEECF8kI">
+                    <img src="https://img.youtube.com/vi/MyvqEECF8kI/mqdefault.jpg" alt="Nitnem & Asa Di Vaar">
                     <div class="youtube-play-icon-overlay">
                         <svg viewBox="0 0 24 24" class="youtube-play-icon-svg">
                             <path d="M8 5v14l11-7z" />
@@ -167,8 +205,8 @@ get_header();
                 </div>
 
                 <!-- Video 2 -->
-                <div class="youtube-thumb-item" data-video-id="Lh3JzM2pLrk">
-                    <img src="https://img.youtube.com/vi/Lh3JzM2pLrk/mqdefault.jpg" alt="Gurdwara Live Kirtan">
+                <div class="youtube-thumb-item" data-video-id="1k8uu2yzEdA">
+                    <img src="https://img.youtube.com/vi/1k8uu2yzEdA/mqdefault.jpg" alt="Gurdwara Live Kirtan">
                     <div class="youtube-play-icon-overlay">
                         <svg viewBox="0 0 24 24" class="youtube-play-icon-svg">
                             <path d="M8 5v14l11-7z" />
@@ -177,8 +215,8 @@ get_header();
                 </div>
 
                 <!-- Video 3 -->
-                <div class="youtube-thumb-item" data-video-id="a9j_3R82l_Q">
-                    <img src="https://img.youtube.com/vi/a9j_3R82l_Q/mqdefault.jpg" alt="Evening Rehraas Sahib">
+                <div class="youtube-thumb-item" data-video-id="sfkhrv3zFW0">
+                    <img src="https://img.youtube.com/vi/sfkhrv3zFW0/mqdefault.jpg" alt="Evening Rehraas Sahib">
                     <div class="youtube-play-icon-overlay">
                         <svg viewBox="0 0 24 24" class="youtube-play-icon-svg">
                             <path d="M8 5v14l11-7z" />
@@ -187,8 +225,28 @@ get_header();
                 </div>
 
                 <!-- Video 4 -->
-                <div class="youtube-thumb-item" data-video-id="9vR_7k0k58I">
-                    <img src="https://img.youtube.com/vi/9vR_7k0k58I/mqdefault.jpg" alt="Sikh Community Program">
+                <div class="youtube-thumb-item" data-video-id="w4z8HRAVr0I">
+                    <img src="https://img.youtube.com/vi/w4z8HRAVr0I/mqdefault.jpg" alt="Sikh Community Program">
+                    <div class="youtube-play-icon-overlay">
+                        <svg viewBox="0 0 24 24" class="youtube-play-icon-svg">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="youtube-thumb-item" data-video-id="AC_exwh3Ndw">
+                    <img src="https://img.youtube.com/vi/AC_exwh3Ndw/mqdefault.jpg" alt="Nitnem Simran Program">
+                    <div class="youtube-play-icon-overlay">
+                        <svg viewBox="0 0 24 24" class="youtube-play-icon-svg">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="youtube-thumb-item" data-video-id="caF9aNat_Os">
+                    <img src="https://img.youtube.com/vi/caF9aNat_Os/mqdefault.jpg" alt="Special Diwan Broadcast">
                     <div class="youtube-play-icon-overlay">
                         <svg viewBox="0 0 24 24" class="youtube-play-icon-svg">
                             <path d="M8 5v14l11-7z" />
@@ -232,17 +290,17 @@ get_header();
             });
         });
 
-        // Horizontal Scrolling
+        // Horizontal Scrolling (thumbnail width 216px + gap 12px = 228px)
         const container = document.getElementById('yt-thumbs-container');
         const leftBtn = document.getElementById('yt-scroll-left');
         const rightBtn = document.getElementById('yt-scroll-right');
 
         if (container && leftBtn && rightBtn) {
             leftBtn.addEventListener('click', () => {
-                container.scrollLeft -= 250;
+                container.scrollBy({ left: -228, behavior: 'smooth' });
             });
             rightBtn.addEventListener('click', () => {
-                container.scrollLeft += 250;
+                container.scrollBy({ left: 228, behavior: 'smooth' });
             });
         }
     });
@@ -257,7 +315,7 @@ get_header();
             <span class="instagram-line"></span>
             <div class="instagram-title-box">
                 <h2 class="instagram-title">Latest posts from Instagram</h2>
-                <a href="https://www.instagram.com/gurdwara_sukh_sagar" target="_blank" rel="noopener noreferrer"
+                <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer"
                     class="instagram-header-icon" aria-label="Instagram Link">
                     <svg viewBox="0 0 24 24" class="instagram-title-svg">
                         <path
